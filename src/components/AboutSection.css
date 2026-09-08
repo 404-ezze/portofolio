@@ -1,0 +1,167 @@
+.about-panel {
+  display: grid;
+  grid-template-columns: minmax(250px, .7fr) minmax(0, 1.3fr);
+  gap: clamp(48px, 9vw, 130px);
+  align-items: start;
+  padding: 126px 10vw 136px;
+  background: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.about-panel__intro {
+  position: sticky;
+  top: 32px;
+}
+
+.about-panel__eyebrow,
+.about-panel__label {
+  color: #64748b;
+  font: 10px 'Poppins', sans-serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.about-panel__title {
+  margin: 32px 0 24px;
+  color: #111827;
+  font-size: clamp(46px, 5.3vw, 76px);
+  line-height: .91;
+  letter-spacing: -.08em;
+}
+
+.about-panel__title em {
+  color: #111827;
+}
+
+.about-panel__summary {
+  max-width: 340px;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.about-panel__content {
+  min-width: 0;
+}
+
+.about-panel__block + .about-panel__block {
+  margin-top: 76px;
+}
+
+.about-panel__label {
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #111827;
+  font-weight: 600;
+}
+
+.about-panel__education {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px;
+  margin-top: 24px;
+}
+
+.about-panel__education-item {
+  padding-top: 5px;
+}
+
+.about-panel__period {
+  display: block;
+  margin-bottom: 18px;
+  color: #94a3b8;
+  font: 10px 'Poppins', sans-serif;
+}
+
+.about-panel__education-item h3,
+.about-panel__experience-item h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.about-panel__education-item p,
+.about-panel__experience-item p {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.about-panel__education-item p {
+  margin-top: 7px;
+}
+
+.about-panel__education-item strong {
+  display: block;
+  margin-top: 12px;
+  color: #60a5fa;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.about-panel__experience {
+  margin-top: 6px;
+}
+
+.about-panel__experience-item {
+  display: grid;
+  grid-template-columns: 145px minmax(0, 1fr);
+  gap: 26px;
+  padding: 25px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.about-panel__experience-item .about-panel__period {
+  margin: 2px 0 0;
+}
+
+.about-panel__institution {
+  margin: 6px 0 12px;
+  color: #60a5fa !important;
+  font: 11px 'Poppins', sans-serif;
+}
+
+.about-panel__experience-item p:last-child {
+  max-width: 620px;
+  margin-top: 12px;
+}
+
+@media (max-width: 800px) {
+  .about-panel {
+    display: block;
+    padding: 88px 8vw 100px;
+  }
+
+  .about-panel__intro {
+    position: static;
+  }
+
+  .about-panel__content {
+    margin-top: 58px;
+  }
+}
+
+@media (max-width: 560px) {
+  .about-panel {
+    padding-inline: 7vw;
+  }
+
+  .about-panel__title {
+    font-size: clamp(44px, 13vw, 66px);
+  }
+
+  .about-panel__education {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .about-panel__experience-item {
+    display: block;
+    padding: 22px 0;
+  }
+
+  .about-panel__experience-item .about-panel__period {
+    margin-bottom: 12px;
+  }
+}

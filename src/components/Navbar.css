@@ -1,0 +1,92 @@
+
+.site-nav {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent !important;
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  z-index: 1000;
+  pointer-events: none; 
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 5vw 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: transparent !important;
+  pointer-events: auto; /* Mengaktifkan kembali klik pada menu */
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: transparent !important;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #000000 !important;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.25s ease;
+  font-family: 'Poppins', sans-serif !important;
+  background: transparent !important;
+}
+
+.nav-item:hover {
+  color: #2563eb !important;
+}
+
+/* =======================================================
+   TOMBOL LET'S TALK: KONTRAS TINGGI, ANTI-TENGGELAM
+======================================================= */
+.nav-contact-btn {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #000000 !important; /* Teks default hitam */
+  border: 1.5px solid #000000 !important;
+  padding: 8px 20px !important;
+  border-radius: 999px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.nav-contact-btn span {
+  color: #000000 !important;
+  transition: transform 0.25s ease !important;
+}
+
+.nav-contact-btn:hover {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important; /* Teks dipaksa putih terang agar terbaca jelas */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.nav-contact-btn:hover span {
+  color: #ffffff !important; /* Panah ikut putih */
+  transform: translate(2px, -2px);
+}
+
+.project-detail-page .site-nav {
+  position: relative !important; 
+  margin-bottom: 24px;
+  pointer-events: auto;
+}

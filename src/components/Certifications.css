@@ -1,0 +1,198 @@
+/* src/components/Certifications.css */
+
+.cert-section {
+  padding: 120px 10vw;
+  background: #ffffff;
+  font-family: 'Poppins', sans-serif !important;
+  border-top: 1px solid #e2e8f0;
+}
+
+.cert-header {
+  margin-bottom: 64px;
+}
+
+.cert-eyebrow {
+  color: #64748b;
+  font: 10px 'Poppins', sans-serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.cert-heading {
+  color: #000000;
+  font-size: clamp(42px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.cert-heading em {
+  font-style: normal;
+  color: #000000;
+}
+
+.cert-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Desain Baris Kartu (List) */
+.cert-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  align-items: center;
+  padding: 36px 0;
+  border-bottom: 1px solid #e2e8f0;
+  color: #000000;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cert-item:first-child {
+  border-top: 1px solid #e2e8f0;
+}
+
+/* EFEK HOVER: Warna Hitam Berubah Jadi Biru */
+.cert-item:hover .cert-title,
+.cert-item:hover .cert-action {
+  color: #2563eb; /* Warna biru profesional */
+}
+
+.cert-number {
+  font-family: 'Courier New', Courier, monospace !important;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000000;
+  opacity: 0.3;
+}
+
+.cert-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cert-title {
+  color: #111827;
+  font-size: 17px;
+  line-height: 1.35;
+  transition: color 0.3s ease;
+}
+
+.cert-meta {
+  margin: 0;
+  font-size: 14px;
+  color: #000000;
+  opacity: 0.6;
+}
+
+/* Call to Action */
+.cert-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000; /* Aslinya hitam */
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.cert-action svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.cert-item:hover .cert-action {
+  opacity: 1;
+}
+
+.cert-item:hover .cert-action svg {
+  transform: translate(4px, -4px); /* Animasi panah diagonal */
+}
+
+/* =========================================
+   POP-UP PREVIEW ELEGANT
+========================================= */
+.cert-popup {
+  position: absolute;
+  top: 50%;
+  right: 220px; /* Muncul sedikit di sebelah kiri tombol "View" */
+  transform: translateY(-50%) translateX(20px) scale(0.95);
+  width: 340px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; /* Agar tidak menghalangi klik pada baris */
+  z-index: 50;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Menampilkan Pop-up saat baris di-hover */
+.cert-item:hover .cert-popup {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0) scale(1);
+}
+
+/* Isi dalam Pop-up */
+.popup-badge {
+  display: inline-block;
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  border: 1px solid #dbeafe;
+}
+
+.popup-title {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.4;
+}
+
+.popup-desc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #000000;
+  opacity: 0.7;
+}
+
+/* Responsivitas - Mematikan popup di HP agar tidak luber */
+@media (max-width: 1024px) {
+  .cert-popup {
+    display: none; 
+  }
+}
+
+@media (max-width: 768px) {
+  .cert-section {
+    padding: 80px 6vw;
+  }
+  .cert-item {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 28px 0;
+  }
+  .cert-number {
+    display: none;
+  }
+  .cert-action {
+    opacity: 1;
+  }
+}

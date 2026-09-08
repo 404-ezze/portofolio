@@ -1,0 +1,242 @@
+/* ContactSection.css */
+
+.contact-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(390px, .9fr);
+  gap: clamp(48px, 10vw, 150px);
+  align-items: center; /* Diubah ke center agar seimbang secara vertikal */
+  padding: 128px 10vw 140px;
+  background: #ffffff;
+  isolation: isolate;
+  font-family: 'Poppins', sans-serif !important; /* Kunci font global di section ini */
+}
+
+.contact-panel__copy,
+.contact-panel__links {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-panel__copy {
+  max-width: 620px;
+}
+
+.contact-panel__eyebrow {
+  color: #64748b;
+  font: 10px 'Poppins', sans-serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.contact-panel__title {
+  margin: 0 0 24px 0;
+  color: #0f172a;
+  font-size: clamp(48px, 6.5vw, 84px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.contact-panel__title em {
+  color: #000000; /* Highlight kata 'in mind?' */
+  font-style: normal;
+  position: relative;
+}
+
+.contact-panel__description {
+  max-width: 440px;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.contact-panel__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* Animasi Status Denyut (Pulsing Dot) */
+.contact-panel__availability {
+  color: #334155;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+
+@keyframes pulse-dot {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.contact-panel__location {
+  color: #94a3b8;
+  font-size: 13px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Bagian Link / Kartu Kontak */
+.contact-panel__links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Jarak antar kartu */
+}
+
+.contact-panel__link {
+  position: relative;
+  display: grid;
+  grid-template-columns: 28px 48px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #0f172a;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+/* Efek Hover Modern tanpa Layout Shift */
+.contact-panel__link:hover {
+  border-color: #bfdbfe;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.08);
+  transform: translateY(-4px); /* Mengangkat kartu ke atas sedikit */
+}
+
+.contact-panel__number {
+  color: #cbd5e1;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.contact-panel__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s ease;
+}
+
+.contact-panel__link:hover .contact-panel__icon {
+  background: #eff6ff; /* Latar ikon menjadi biru sangat muda saat dihover */
+}
+
+.contact-panel__icon img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.contact-panel__link:hover .contact-panel__icon img {
+  opacity: 1;
+}
+
+.contact-panel__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact-panel__label {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-panel__value {
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Call to Action & Animasi Panah */
+.contact-panel__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-panel__action svg {
+  width: 16px;
+  height: 16px;
+  color: #94a3b8;
+  transition: all 0.3s ease;
+}
+
+.contact-panel__link:hover .contact-panel__action {
+  color: #2563eb; /* Teks action menjadi biru */
+}
+
+.contact-panel__link:hover .contact-panel__action svg {
+  color: #2563eb;
+  transform: translate(4px, -4px); /* Panah bergerak secara diagonal */
+}
+
+/* Penyesuaian Responsif */
+@media (max-width: 1024px) {
+  .contact-panel {
+    grid-template-columns: 1fr;
+    gap: 64px;
+    padding: 92px 8vw;
+  }
+}
+
+@media (max-width: 520px) {
+  .contact-panel {
+    padding: 80px 6vw;
+  }
+
+  .contact-panel__title {
+    font-size: clamp(40px, 11vw, 56px);
+  }
+
+  .contact-panel__link {
+    grid-template-columns: 24px 40px minmax(0, 1fr);
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .contact-panel__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-panel__icon img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .contact-panel__action {
+    font-size: 0; 
+  }
+  
+  .contact-panel__action svg {
+    display: block;
+  }
+
+  .contact-panel__value {
+    font-size: 13px;
+  }
+}
