@@ -62,7 +62,7 @@
 }
 
 .nav-contact:hover {
-  background: #2563eb !important;
+  background: #0574BD!important;
   transform: translateY(-1px);
 }
 
@@ -104,7 +104,7 @@
 }
 
 .header-breadcrumb a:hover {
-  color: #2563eb;
+  color: #0574BD;
 }
 
 .breadcrumb-chevron {
@@ -145,7 +145,7 @@
 
 .header-chip--highlight {
   background: #eff6ff;
-  color: #2563eb;
+  color: #0574BD;
   border-color: #dbeafe;
 }
 
@@ -161,7 +161,8 @@
   flex-direction: column;
   gap: 20px;
   padding-left: 36px;
-  border-left: 1px solid #f1f5f9;
+  border-left: 1px solid #0574BD
+;
 }
 
 .meta-item {
@@ -171,21 +172,23 @@
 }
 
 .meta-item__icon {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  border-radius: 12px;
-  background: #eff6ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  border-radius: 12px !important;
+  background: #0574BD !important; /* Paksa biru solid */
+  background-color: #0574BD !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25) !important;
 }
 
 .meta-item__icon svg {
-  width: 20px;
-  height: 20px;
+  width: 20px !important;
+  height: 20px !important;
+  stroke: #ffffff !important; /* Paksa ikon putih */
 }
-
 .meta-item__text {
   display: flex;
   flex-direction: column;
@@ -426,7 +429,7 @@
 }
 
 .action-btn:hover {
-  background: #2563eb;
+  background: #0574BD;
   transform: translateY(-2px);
 }
 
@@ -444,8 +447,8 @@
 }
 
 .action-btn-secondary:hover {
-  border-color: #2563eb;
-  color: #2563eb;
+  border-color: #0574BD;
+  color: #0574BD;
   transform: translateY(-2px);
 }
 

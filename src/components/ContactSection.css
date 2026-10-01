@@ -2,24 +2,28 @@
 
 .contact-panel {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(390px, .9fr);
-  gap: clamp(48px, 10vw, 150px);
-  align-items: center; /* Diubah ke center agar seimbang secara vertikal */
-  padding: 128px 10vw 140px;
-  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 100px 10vw 40px;
+  background: radial-gradient(circle at 14% 100%, #60a5fa45 0%, transparent 42%), 
+              linear-gradient(0deg, #e2e8f0 0%, #fff 68%, #fff 100%);
   isolation: isolate;
-  font-family: 'Poppins', sans-serif !important; /* Kunci font global di section ini */
+  font-family: 'Poppins', sans-serif !important;
+  box-sizing: border-box;
 }
 
-.contact-panel__copy,
-.contact-panel__links {
-  position: relative;
-  z-index: 1;
+.contact-panel__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(380px, 0.9fr);
+  column-gap: clamp(40px, 8vw, 120px);
+  align-items: center; 
+  width: 100%;
+  margin-bottom: 50px; 
 }
 
 .contact-panel__copy {
-  max-width: 620px;
+  max-width: 580px;
 }
 
 .contact-panel__eyebrow {
@@ -30,51 +34,52 @@
 }
 
 .contact-panel__title {
-  margin: 0 0 24px 0;
+  margin: 0 0 20px 0;
   color: #0f172a;
-  font-size: clamp(48px, 6.5vw, 84px);
-  font-weight: 700;
+  font-size: clamp(44px, 5.5vw, 76px);
+  font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.04em;
 }
 
 .contact-panel__title em {
-  color: #000000; /* Highlight kata 'in mind?' */
+  color: #000000;
   font-style: normal;
-  position: relative;
 }
 
 .contact-panel__description {
   max-width: 440px;
   color: #64748b;
   font-size: 15px;
-  line-height: 1.8;
+  line-height: 1.75;
   font-weight: 400;
+  margin: 0 0 80px 0;
 }
 
 .contact-panel__meta {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 40px;
+  gap: 8px;
   padding-top: 24px;
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid #e2e8f0;
 }
 
-/* Animasi Status Denyut (Pulsing Dot) */
 .contact-panel__availability {
   color: #334155;
   font-size: 13px;
   font-weight: 500;
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
-
-@keyframes pulse-dot {
-  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
-  70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+.availability-dot {
+  width: 7px;
+  height: 7px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
 }
 
 .contact-panel__location {
@@ -83,12 +88,12 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
-/* Bagian Link / Kartu Kontak */
+/* Kartu Kontak (Kanan) */
 .contact-panel__links {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px; /* Jarak antar kartu */
+  gap: 16px;
 }
 
 .contact-panel__link {
@@ -97,21 +102,20 @@
   grid-template-columns: 28px 48px minmax(0, 1fr) auto;
   align-items: center;
   gap: 16px;
-  padding: 20px 24px;
+  padding: 18px 22px;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
   background: #ffffff;
   color: #0f172a;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
-/* Efek Hover Modern tanpa Layout Shift */
 .contact-panel__link:hover {
   border-color: #bfdbfe;
   box-shadow: 0 12px 24px rgba(37, 99, 235, 0.08);
-  transform: translateY(-4px); /* Mengangkat kartu ke atas sedikit */
+  transform: translateY(-3px);
 }
 
 .contact-panel__number {
@@ -124,33 +128,28 @@
 .contact-panel__icon {
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
   background: #f8fafc;
   border: 1px solid #f1f5f9;
-  transition: all 0.3s ease;
+  transition: background 0.25s ease;
 }
 
 .contact-panel__link:hover .contact-panel__icon {
-  background: #eff6ff; /* Latar ikon menjadi biru sangat muda saat dihover */
+  background: #eff6ff;
 }
 
 .contact-panel__icon img {
-  width: 20px;
-  height: 20px;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-}
-
-.contact-panel__link:hover .contact-panel__icon img {
-  opacity: 1;
+  width: 18px;
+  height: 18px;
+  opacity: 0.85;
 }
 
 .contact-panel__content {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .contact-panel__label {
@@ -163,80 +162,73 @@
 
 .contact-panel__value {
   color: #0f172a;
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 600;
 }
 
-/* Call to Action & Animasi Panah */
 .contact-panel__action {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: #94a3b8;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
 }
 
 .contact-panel__action svg {
-  width: 16px;
-  height: 16px;
-  color: #94a3b8;
-  transition: all 0.3s ease;
+  width: 15px;
+  height: 15px;
+  transition: transform 0.25s ease;
 }
 
 .contact-panel__link:hover .contact-panel__action {
-  color: #2563eb; /* Teks action menjadi biru */
+  color: #2563eb;
 }
 
 .contact-panel__link:hover .contact-panel__action svg {
   color: #2563eb;
-  transform: translate(4px, -4px); /* Panah bergerak secara diagonal */
+  transform: translate(3px, -3px);
 }
 
-/* Penyesuaian Responsif */
+.contact-seamless-footer {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+
+}
+
+.contact-seamless-footer span {
+  font-size: 12px !important;
+  color: #94a3b8 !important;
+  letter-spacing: 0.02em;
+  font-family: 'poppins', open sans;
+  margin: 0 0 0px 0;
+}
+
+/* Responsif */
 @media (max-width: 1024px) {
-  .contact-panel {
+  .contact-panel__body {
     grid-template-columns: 1fr;
-    gap: 64px;
-    padding: 92px 8vw;
+    gap: 48px;
+    margin-bottom: 60px;
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 640px) {
   .contact-panel {
-    padding: 80px 6vw;
-  }
-
-  .contact-panel__title {
-    font-size: clamp(40px, 11vw, 56px);
+    padding: 80px 6vw 32px;
   }
 
   .contact-panel__link {
-    grid-template-columns: 24px 40px minmax(0, 1fr);
-    gap: 12px;
-    padding: 16px;
+    grid-template-columns: 24px 40px minmax(0, 1fr) auto;
+    padding: 14px 16px;
   }
 
-  .contact-panel__icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  .contact-panel__icon img {
-    width: 16px;
-    height: 16px;
-  }
-
-  .contact-panel__action {
-    font-size: 0; 
-  }
-  
-  .contact-panel__action svg {
-    display: block;
-  }
-
-  .contact-panel__value {
-    font-size: 13px;
+  .contact-panel__action span {
+    display: none;
   }
 }

@@ -1,17 +1,21 @@
-/* src/components/Certifications.css */
-
+/* ==========================================
+   KONTINER SEKSI SERTIFIKASI
+========================================== */
 .cert-section {
-  padding: 120px 10vw;
-  background: #ffffff;
+  padding: 100px 5vw;
+  max-width: 1200px;
+  margin: 0 auto;
   font-family: 'Poppins', sans-serif !important;
-  border-top: 1px solid #e2e8f0;
 }
 
 .cert-header {
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
 
 .cert-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   color: #64748b;
   font: 10px 'Poppins', sans-serif;
   letter-spacing: .1em;
@@ -19,180 +23,347 @@
 }
 
 .cert-heading {
-  color: #000000;
-  font-size: clamp(42px, 5vw, 64px);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  margin: 0;
-}
-
-.cert-heading em {
-  font-style: normal;
-  color: #000000;
-}
-
-.cert-list {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Desain Baris Kartu (List) */
-.cert-item {
-  position: relative;
-  display: grid;
-  grid-template-columns: 60px 1fr auto;
-  align-items: center;
-  padding: 36px 0;
-  border-bottom: 1px solid #e2e8f0;
-  color: #000000;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.cert-item:first-child {
-  border-top: 1px solid #e2e8f0;
-}
-
-/* EFEK HOVER: Warna Hitam Berubah Jadi Biru */
-.cert-item:hover .cert-title,
-.cert-item:hover .cert-action {
-  color: #2563eb; /* Warna biru profesional */
-}
-
-.cert-number {
-  font-family: 'Courier New', Courier, monospace !important;
-  font-size: 13px;
-  font-weight: 600;
-  color: #000000;
-  opacity: 0.3;
-}
-
-.cert-content {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.cert-title {
+  margin: 32px 0 24px;
   color: #111827;
-  font-size: 17px;
-  line-height: 1.35;
-  transition: color 0.3s ease;
+  font-size: clamp(46px, 5.3vw, 76px);
+  line-height: .91;
+  letter-spacing: -.08em;
 }
 
-.cert-meta {
-  margin: 0;
-  font-size: 14px;
-  color: #000000;
-  opacity: 0.6;
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
 }
 
-/* Call to Action */
-.cert-action {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #000000; /* Aslinya hitam */
-  opacity: 0.5;
-  transition: all 0.3s ease;
-}
-
-.cert-action svg {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.3s ease;
-}
-
-.cert-item:hover .cert-action {
-  opacity: 1;
-}
-
-.cert-item:hover .cert-action svg {
-  transform: translate(4px, -4px); /* Animasi panah diagonal */
-}
-
-/* =========================================
-   POP-UP PREVIEW ELEGANT
-========================================= */
-.cert-popup {
-  position: absolute;
-  top: 50%;
-  right: 220px; /* Muncul sedikit di sebelah kiri tombol "View" */
-  transform: translateY(-50%) translateX(20px) scale(0.95);
-  width: 340px;
+/* ==========================================
+   KARTU SERTIFIKAT INDIVIDUAL
+========================================== */
+.cert-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none; /* Agar tidak menghalangi klik pada baris */
-  z-index: 50;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 18px;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 80px 1fr 30px;
+  gap: 16px;
+  align-items: flex-start;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.02);
 }
 
-/* Menampilkan Pop-up saat baris di-hover */
-.cert-item:hover .cert-popup {
+.cert-card:hover {
+  transform: translateY(-4px);
+  border-color: #cbd5e1;
+  background-color: #fafbfc;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+}
+
+.cert-card__icon {
+  width: 60px;
+  height: 60px;
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.issuer-svg {
+  width: 28px;
+  height: 28px;
+}
+
+.cert-card__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cert-card__number {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+
+.cert-card__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.35;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.cert-card:hover .cert-card__title {
+  color: #0574BD;
+}
+
+.cert-card__issuer {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0 0 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cert-card__date {
+  font-size: 11.5px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.cert-card__external {
+  color: #0574BD;
+  opacity: 0.85;
+  display: flex;
+  justify-content: flex-end;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.cert-card__external svg {
+  width: 16px;
+  height: 16px;
+}
+
+.cert-card:hover .cert-card__external {
   opacity: 1;
-  visibility: visible;
-  transform: translateY(-50%) translateX(0) scale(1);
+  transform: translate(2px, -2px);
 }
 
-/* Isi dalam Pop-up */
-.popup-badge {
-  display: inline-block;
-  background: #eff6ff;
-  color: #2563eb;
-  padding: 6px 12px;
-  border-radius: 6px;
+/* ==========================================
+   KARTU KUTIPAN KHUSUS (QUOTE CARD)
+========================================== */
+.cert-quote-card {
+  grid-column: span 2; 
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 18px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: flex-start;
+  justify-content:flex-end;
+  gap: 20px;
+}
+
+.quote-mark {
+  font-size: 52px;
+  font-family: Georgia, serif;
+  line-height: 1;
+  color: #93c5fd;
+  align-self: flex-start;
+  user-select: none;
+}
+
+.quote-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.quote-text {
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #475569;
+  margin: 0;
+}
+
+.quote-footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.quote-line {
+  flex-grow: 1;
+  max-width: 140px;
+  height: 1px;
+  background-color: #cbd5e1;
+}
+
+.quote-kicker {
   font-size: 10px;
   font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 16px;
-  border: 1px solid #dbeafe;
 }
 
-.popup-title {
-  margin: 0 0 12px 0;
-  font-size: 16px;
-  font-weight: 700;
-  color: #000000;
-  line-height: 1.4;
-}
+/* ==========================================
+   RESPONSIF MOBILE & TABLET
+========================================== */
+@media (max-width: 1080px) {
+  .cert-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
-.popup-desc {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.7;
-  color: #000000;
-  opacity: 0.7;
-}
-
-/* Responsivitas - Mematikan popup di HP agar tidak luber */
-@media (max-width: 1024px) {
-  .cert-popup {
-    display: none; 
+  .cert-quote-card {
+    grid-column: span 2;
   }
 }
 
-@media (max-width: 768px) {
-  .cert-section {
-    padding: 80px 6vw;
-  }
-  .cert-item {
+@media (max-width: 720px) {
+  .cert-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 28px 0;
   }
-  .cert-number {
-    display: none;
+
+  .cert-quote-card {
+    grid-column: span 1;
+    padding: 24px;
   }
-  .cert-action {
+}
+/* Buat kartu bisa diklik */
+.cert-card {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* =========================================================
+   MODAL POP-UP PREVIEW SERTIFIKAT
+========================================================= */
+.cert-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 9999;
+  animation: certFadeIn 0.2s ease-out forwards;
+}
+
+.cert-modal-dialog {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.2);
+  border: 1px solid #e2e8f0;
+  animation: certScaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cert-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+.cert-modal-kicker {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #0574BD;
+  letter-spacing: 0.05em;
+}
+
+.cert-modal-title {
+  margin: 4px 0 0 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.cert-modal-close {
+  background: #f1f5f9;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 14px;
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.cert-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* Area Tampilan Berkas Gambar/PDF */
+.cert-modal-viewer {
+  padding: 16px;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  min-height: 360px;
+}
+
+.cert-modal-image {
+  max-width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+}
+
+.cert-modal-iframe {
+  width: 100%;
+  height: 72vh;
+  border: none;
+  border-radius: 10px;
+}
+
+.cert-modal-placeholder {
+  color: #64748b;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+/* Animasi */
+@keyframes certFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes certScaleIn {
+  from { 
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to { 
     opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .cert-modal-dialog {
+    max-height: 95vh;
+  }
+  .cert-modal-header {
+    padding: 16px 18px;
+  }
+  .cert-modal-title {
+    font-size: 15px;
   }
 }

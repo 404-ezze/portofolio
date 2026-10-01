@@ -101,7 +101,7 @@
 }
 
 .toolkit-panel__supporting-item:hover {
-  color: #2563eb;
+  color: #0574BD;
 }
 
 .toolkit-panel__supporting-item:hover img {
@@ -146,7 +146,7 @@
 
 /* Hover Lift (Efek Timbul) */
 .toolkit-panel__skill:hover {
-  border-color: #2563eb; 
+  border-color: #0574BD; 
   box-shadow: 0 16px 32px rgba(37, 99, 235, 0.1);
   transform: translateY(-6px);
 }
@@ -187,7 +187,7 @@
 }
 
 .toolkit-panel__skill-category {
-  color: #2563eb; /* Diubah menjadi Biru secara permanen */
+  color: #0574BD; /* Diubah menjadi Biru secara permanen */
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -206,7 +206,7 @@
 
 /* Hanya judul (h3) yang berubah biru saat kartu dihover */
 .toolkit-panel__skill:hover h3 {
-  color: #2563eb;
+  color: #0574BD;
 }
 
 
@@ -279,8 +279,8 @@
 }
 
 .human-skill-pill:hover {
-  border-color: #2563eb;
-  color: #2563eb;
+  border-color: #0574BD;
+  color: #0574BD;
   background: #f8fafc;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.06);

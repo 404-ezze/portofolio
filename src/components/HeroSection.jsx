@@ -7,7 +7,7 @@ export default function HeroSection({ profil }) {
         <div className="hero-panel__copy">
           <p className="hero-panel__eyebrow">{profil.spesialisasi}</p>
           <div className="hero-panel__title-row">
-            <h1 className="hero-panel__title">{profil.nama}<br /><em>builds clarity</em></h1>
+            <h1 className="hero-panel__title">{profil.nama}<br /><em>Builds Scalability</em></h1>
           </div>
           <p className="hero-panel__role">{profil.gelar}</p>
           <p className="hero-panel__description">{profil.deskripsi}</p>

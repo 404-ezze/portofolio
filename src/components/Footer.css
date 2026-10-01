@@ -1,0 +1,47 @@
+.footer-wrap {
+  width: 100% !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  position: relative !important;
+  margin-top: -80px !important; /* Menarik footer masuk ke dalam kanvas gradasi contact */
+  padding-bottom: 36px !important;
+  z-index: 20 !important;
+  pointer-events: auto;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.footer-copy,
+.footer-location {
+  color: #475569 !important;
+  letter-spacing: 0.01em;
+  background: transparent !important;
+}
+
+@media (max-width: 640px) {
+  .footer-wrap {
+    margin-top: -60px !important;
+    padding-bottom: 28px !important;
+  }
+  .footer-inner {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+}

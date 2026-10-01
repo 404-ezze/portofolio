@@ -1,157 +1,209 @@
-/* src/components/Publications.css */
-
-.publication-grid { 
-  display: grid; 
-  grid-template-columns: repeat(3, minmax(0, 1fr)); 
-  gap: 32px; 
-  width: 100%;
+/* Kontainer Utama Kartu Publikasi */
+.publication-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+  font-family: 'Poppins', sans-serif;
+  margin-top: 40px;
 }
 
-/* Arsitektur Kartu Modern & Bersih */
-.academic-journal-card { 
-  background: #ffffff; 
-  border: 1px solid #e2e8f0; 
-  border-radius: 20px; 
-  padding: 32px;
+/* Kartu Individual dengan Border Vertikal Pemisah */
+.publication-card {
+  padding: 36px 32px;
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  font-family: 'Poppins', sans-serif;
-  
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  transition: background-color 0.25s ease;
 }
 
-.academic-journal-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); 
-  border-color: #cbd5e1;
+.publication-card:last-child {
+  border-right: none;
 }
 
-/* Kompartemen Badge */
-.journal-badges {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 24px;
+.publication-card:hover {
+  background-color: #fafbfc;
 }
 
-.badge-type {
-  background: #eff6ff;
-  color: #2563eb;
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border: 1px solid #dbeafe;
-  /* Menggunakan font Courier New untuk Badge */
-  font-family: 'Courier New', Courier, monospace !important;
-}
-
-.badge-year {
-  background: #f8fafc;
-  color: #64748b;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  border: 1px solid #e2e8f0;
-  /* Menggunakan font Courier New untuk Badge */
-  font-family: 'Courier New', Courier, monospace ;
-}
-
-/* Tipografi Judul Publikasi */
-.journal-title { 
-  font-family: 'Poppins', sans-serif;
-  font-size: 20px; 
-  line-height: 1.4; 
+/* 1. Nomor Urut */
+.pub-number {
+  font-size: 15px;
   font-weight: 700;
   color: #0f172a;
   margin-bottom: 16px;
   letter-spacing: -0.01em;
 }
 
-/* Kompartemen Abstrak & DOI */
-.journal-abstract-section {
-  flex-grow: 1;
-  margin-bottom: 16px; /* Jarak yang pas antara deskripsi dan DOI */
+/* 2. Tag Kategori & Tahun */
+.pub-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
-.journal-abstract { 
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px; 
-  line-height: 1.7; 
-  color: #475569; 
-  font-weight: 400;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3; 
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.pub-type {
+  color: #6600ff; 
 }
 
-
-.journal-doi {
-  margin-bottom: 28px; /* Jarak sebelum garis footer */
-}
-
-.doi-text {
+.pub-dot {
   color: #94a3b8;
+}
+
+.pub-year {
+  color: #64748b;
+}
+
+/* 3. Judul & Deskripsi */
+.pub-title {
+  font-size: 20px;
+  line-height: 1.35;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+}
+
+.pub-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0 0 24px 0;
+  flex-grow: 1;
+}
+
+/* 4. Metadata Jurnal */
+.pub-journal-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 28px;
+  padding-top: 12px;
+}
+
+.journal-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.journal-issue {
   font-size: 12px;
-  font-weight: 500;
-  /* Format Courier untuk menegaskan bahwa ini adalah kode/ID akademis */
-  font-family: 'Courier New', Courier, monospace; 
+  color: #64748b;
 }
 
-/* Kompartemen Footer & View More */
-.journal-footer {
-  border-top: 1px solid #f1f5f9; 
-  padding-top: 20px;
-  margin-top: auto; 
-}
-
-/* Tautan View More Minimalis ala Apple/Modern Web */
-.view-more-link {
+/* 5. Tautan DOI */
+.pub-doi-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  color: #2563eb; /* Biru aksi (call-to-action) */
-  font-family: 'Poppins', sans-serif !important;
-  font-size: 14px;
-  font-weight: 600;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #64748b;
+  transition: all 0.2s ease;
 }
 
-.view-more-link svg {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.3s ease;
+.pub-doi-link span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
 }
 
-.view-more-link:hover {
-  color: #1e3a8a; /* Berubah menjadi biru gelap saat di-hover */
+.pub-doi-link svg {
+  width: 14px;
+  height: 14px;
+  color: #2563eb;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+.about-panel__title {
+  margin: 32px 0 24px;
+  color: #111827;
+  font-size: clamp(46px, 5.3vw, 76px);
+  line-height: .91;
+  letter-spacing: -.08em;
 }
 
-.view-more-link:hover svg {
-  transform: translateX(4px); /* Panah bergeser ke kanan */
+.pub-doi-link:hover {
+  color: #2563eb;
 }
 
-/* Responsivitas Layar */
-@media (max-width: 1024px) { 
-  .publication-grid { 
-    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+.pub-doi-link:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Responsivitas Tablet & Mobile */
+@media (max-width: 1024px) {
+  .publication-container {
+    grid-template-columns: 1fr;
+    border-radius: 16px;
+  }
+
+  .publication-card {
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 28px 24px;
+  }
+
+  .publication-card:last-child {
+    border-bottom: none;
   }
 }
 
-@media (max-width: 768px) { 
-  .publication-grid { 
-    grid-template-columns: minmax(0, 1fr); 
-    gap: 24px;
-  }
-  .academic-journal-card {
-    padding: 24px; 
-  }
+/* Efek hover interaktif pada setiap card publikasi */
+.publication-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
 }
+
+.publication-card:hover {
+  background-color: #f8fafc;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  z-index: 2;
+}
+
+.publication-card:hover .pub-title {
+  color: #0574BD;
+  transition: color 0.25s ease;
+}
+
+.publication-card:hover .pub-doi-link {
+  color: #0574BD;
+}
+
+.publication-card:hover .pub-doi-link svg {
+  transform: translate(3px, -3px);
+}
+.about-panel__title {
+  margin: 32px 0 24px;
+  color: #111827;
+  font-size: clamp(46px, 5.3vw, 76px);
+  line-height: .91;
+  letter-spacing: -.08em;
+}
+
+.about-panel__intropub {
+  top: 32px;
+  grid-column: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 72px;
+  padding: 0 48px;
+}
+

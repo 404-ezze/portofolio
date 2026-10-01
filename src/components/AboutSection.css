@@ -86,6 +86,7 @@
   color: #64748b;
   font-size: 12px;
   line-height: 1.7;
+  text-align: justify;
 }
 
 .about-panel__education-item p {
@@ -95,7 +96,7 @@
 .about-panel__education-item strong {
   display: block;
   margin-top: 12px;
-  color: #60a5fa;
+  color: #0574BD;
   font-size: 11px;
   font-weight: 600;
 }
@@ -118,7 +119,7 @@
 
 .about-panel__institution {
   margin: 6px 0 12px;
-  color: #60a5fa !important;
+  color: #74aff8 !important;
   font: 11px 'Poppins', sans-serif;
 }
 

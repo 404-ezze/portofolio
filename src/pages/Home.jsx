@@ -27,11 +27,6 @@ export default function Home() {
         <Certifications sertifikasi={sertifikasi} />
         <ContactSection profil={profil} />
       </main>
-
-      <footer>
-        <span>© {new Date().getFullYear()} Dinda Jelita</span>
-        <span>{profil.lokasi}</span>
-      </footer>
     </div>
   );
 }
