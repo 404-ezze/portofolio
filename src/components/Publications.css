@@ -1,36 +1,117 @@
-/* Kontainer Utama Kartu Publikasi */
+
+/* =========================================
+   PUBLICATIONS SECTION
+========================================= */
+
+.credentials-section {
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.about-panel__intropub {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: 35px;
+  margin-bottom: 72px;
+  padding: 0 48px;
+}
+
+.publication-heading-content {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.about-panel__title {
+  margin: 20px 0 24px;
+  width: 100%;
+  max-width: 600px;
+  font-size: clamp(30px, 5vw, 82px);
+  color: #111827;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.075em;
+  text-wrap: balance;
+}
+
+.publication-heading-content .cert-description {
+  max-width: 500px;
+  margin: 24px 0 0;
+}
+
+/* =========================================
+   PUBLICATION CONTAINER
+========================================= */
+
 .publication-container {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
-  font-family: 'Poppins', sans-serif;
   margin-top: 40px;
 }
 
-/* Kartu Individual dengan Border Vertikal Pemisah */
-.publication-card {
-  padding: 36px 32px;
+/* =========================================
+   SCROLL REVEAL WRAPPER
+========================================= */
+
+.publication-card-reveal {
   display: flex;
-  flex-direction: column;
-  position: relative;
-  background: #ffffff;
-  border-right: 1px solid #e2e8f0;
-  transition: background-color 0.25s ease;
+  min-width: 0;
+  height: 100%;
 }
 
-.publication-card:last-child {
+/* =========================================
+   PUBLICATION CARD
+========================================= */
+
+.publication-card {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 420px;
+  height: 100%;
+
+  padding: 36px 32px;
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  background: #ffffff;
+
+  border-right: 1px solid #e2e8f0;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease;
+}
+
+.publication-card-reveal:last-child .publication-card {
   border-right: none;
 }
 
 .publication-card:hover {
-  background-color: #fafbfc;
+  background-color: #f8fafc;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(5, 116, 189, 0.08);
+  z-index: 2;
 }
 
-/* 1. Nomor Urut */
+/* =========================================
+   NUMBER
+========================================= */
+
 .pub-number {
   font-size: 15px;
   font-weight: 700;
@@ -39,20 +120,26 @@
   letter-spacing: -0.01em;
 }
 
-/* 2. Tag Kategori & Tahun */
+/* =========================================
+   CATEGORY & YEAR
+========================================= */
+
 .pub-meta {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
+
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+
   margin-bottom: 12px;
 }
 
 .pub-type {
-  color: #6600ff; 
+  color: #0574BD;
 }
 
 .pub-dot {
@@ -63,29 +150,44 @@
   color: #64748b;
 }
 
-/* 3. Judul & Deskripsi */
+/* =========================================
+   TITLE & DESCRIPTION
+========================================= */
+
 .pub-title {
   font-size: 20px;
   line-height: 1.35;
   font-weight: 800;
   color: #0f172a;
-  margin: 0 0 12px 0;
+
+  margin: 0 0 12px;
   letter-spacing: -0.02em;
+
+  transition: color 0.25s ease;
+}
+
+.publication-card:hover .pub-title {
+  color: #0574BD;
 }
 
 .pub-desc {
   font-size: 13.5px;
   line-height: 1.6;
   color: #64748b;
-  margin: 0 0 24px 0;
+
+  margin: 0 0 24px;
   flex-grow: 1;
 }
 
-/* 4. Metadata Jurnal */
+/* =========================================
+   JOURNAL INFORMATION
+========================================= */
+
 .pub-journal-meta {
   display: flex;
   flex-direction: column;
   gap: 2px;
+
   margin-bottom: 28px;
   padding-top: 12px;
 }
@@ -101,19 +203,25 @@
   color: #64748b;
 }
 
-/* 5. Tautan DOI */
+/* =========================================
+   DOI LINK
+========================================= */
+
 .pub-doi-link {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+
   padding-top: 16px;
   border-top: 1px solid #f1f5f9;
+
   text-decoration: none;
   font-size: 11.5px;
   font-weight: 500;
   color: #64748b;
-  transition: all 0.2s ease;
+
+  transition: color 0.2s ease;
 }
 
 .pub-doi-link span {
@@ -126,84 +234,282 @@
 .pub-doi-link svg {
   width: 14px;
   height: 14px;
-  color: #2563eb;
-  transition: transform 0.2s ease;
+  color: #0574BD;
   flex-shrink: 0;
-}
-.about-panel__title {
-  margin: 32px 0 24px;
-  color: #111827;
-  font-size: clamp(46px, 5.3vw, 76px);
-  line-height: .91;
-  letter-spacing: -.08em;
+
+  transition: transform 0.2s ease;
 }
 
 .pub-doi-link:hover {
-  color: #2563eb;
+  color: #0574BD;
 }
 
 .pub-doi-link:hover svg {
-  transform: translate(2px, -2px);
+  transform: translate(3px, -3px);
 }
 
-/* Responsivitas Tablet & Mobile */
+/* =========================================
+   TABLET
+========================================= */
+
 @media (max-width: 1024px) {
+  .about-panel__intropub {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 24px;
+    margin-bottom: 48px;
+  }
+
+  .publication-heading-content {
+    grid-column: 1;
+  }
+
   .publication-container {
     grid-template-columns: 1fr;
     border-radius: 16px;
   }
 
-  .publication-card {
-    border-right: none;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 28px 24px;
+  .publication-card-reveal {
+    height: auto;
   }
 
-  .publication-card:last-child {
+  .publication-card {
+    min-height: 340px;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 32px 28px;
+  }
+
+  .publication-card-reveal:last-child .publication-card {
     border-bottom: none;
   }
 }
 
-/* Efek hover interaktif pada setiap card publikasi */
-.publication-card {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .about-panel__intropub {
+    padding: 0 16px;
+    margin-bottom: 36px;
+  }
+
+  .about-panel__title {
+    font-size: clamp(40px, 11vw, 56px);
+  }
+
+  .publication-card {
+    min-height: 320px;
+    padding: 28px 22px;
+  }
+
+
+  .pub-title {
+    font-size: 18px;
+  }
+
+  .pub-desc {
+    font-size: 13px;
+  }
+}
+.publication-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: visible;
+  align-items: stretch;
 }
 
-.publication-card:hover {
-  background-color: #f8fafc;
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
-  z-index: 2;
-}
-
-.publication-card:hover .pub-title {
-  color: #0574BD;
-  transition: color 0.25s ease;
-}
-
-.publication-card:hover .pub-doi-link {
-  color: #0574BD;
-}
-
-.publication-card:hover .pub-doi-link svg {
-  transform: translate(3px, -3px);
-}
-.about-panel__title {
-  margin: 32px 0 24px;
-  color: #111827;
-  font-size: clamp(46px, 5.3vw, 76px);
-  line-height: .91;
-  letter-spacing: -.08em;
-}
-
-.about-panel__intropub {
-  top: 32px;
-  grid-column: 2;
+.publication-card-reveal {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 72px;
-  padding: 0 48px;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
 }
 
+.publication-card-reveal .publication-card {
+  width: 100%;
+  height: 100%;
+}
+/* ==========================================
+   RESPONSIVE REFINEMENT — PUBLICATIONS
+   Menjaga tampilan desktop dan memperbaiki
+   penyesuaian tablet serta mobile
+========================================== */
+
+/* TABLET */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .credentials-section {
+    width: 100%;
+    min-width: 0;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    box-sizing: border-box;
+  }
+
+  .about-panel__intropub {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 0 20px;
+  }
+
+  .publication-heading-content {
+    grid-column: 1;
+    min-width: 0;
+  }
+
+  .about-panel__title {
+    max-width: 100%;
+    font-size: clamp(42px, 6vw, 64px);
+  }
+
+  .publication-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .publication-card-reveal {
+    min-width: 0;
+    height: 100%;
+  }
+
+  .publication-card {
+    min-width: 0;
+    min-height: 380px;
+    padding: 30px 24px;
+    border-right: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .publication-card-reveal:nth-child(2n) .publication-card {
+    border-right: none;
+  }
+
+  .publication-card-reveal:last-child .publication-card {
+    border-bottom: none;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .credentials-section {
+    width: 100%;
+    min-width: 0;
+    padding-left: 6vw;
+    padding-right: 6vw;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .about-panel__intropub {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    padding: 0;
+    margin-bottom: 36px;
+  }
+
+  .publication-heading-content {
+    grid-column: 1;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .about-panel__title {
+    max-width: 100%;
+    font-size: clamp(36px, 9.5vw, 52px);
+    line-height: 1.08;
+    overflow-wrap: break-word;
+  }
+
+  .publication-heading-content .cert-description {
+    max-width: 100%;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .publication-container {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    border-radius: 14px;
+  }
+
+  .publication-card-reveal {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+
+  .publication-card-reveal .publication-card {
+    width: 100%;
+    min-width: 0;
+    min-height: unset;
+    height: auto;
+    padding: 26px 22px;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .publication-card-reveal:last-child .publication-card {
+    border-bottom: none;
+  }
+
+  .pub-title {
+    font-size: 18px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  .pub-desc {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .pub-journal-meta {
+    margin-bottom: 22px;
+  }
+
+  .journal-name,
+  .journal-issue {
+    overflow-wrap: anywhere;
+  }
+
+  .pub-doi-link {
+    min-width: 0;
+  }
+
+  .pub-doi-link span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* EXTRA SMALL MOBILE */
+@media (max-width: 360px) {
+  .credentials-section {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .about-panel__title {
+    font-size: 34px;
+  }
+
+  .publication-card-reveal .publication-card {
+    padding: 22px 18px;
+  }
+
+  .pub-title {
+    font-size: 16px;
+  }
+
+  .pub-meta {
+    font-size: 9px;
+  }
+
+  .pub-doi-link {
+    font-size: 10px;
+  }
+}

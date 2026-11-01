@@ -1,92 +1,85 @@
+/* src/components/Navbar.css */
 
-.site-nav {
-  position: absolute; 
+.nav-wrap {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  background: transparent !important;
-  background-color: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border: none !important;
-  box-shadow: none !important;
+  background: transparent;
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  border-bottom: none;
   z-index: 1000;
-  pointer-events: none; 
+  font-family: 'Poppins', sans-serif;
 }
 
-.nav-container {
+.nav-inner,
+.nav-inner--menu-only {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 32px 5vw 0;
+  padding: 28px 5vw;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background: transparent !important;
-  pointer-events: auto; /* Mengaktifkan kembali klik pada menu */
+  background: transparent;
+  box-shadow: none;
+  border: none;
 }
 
-.nav-menu {
+.nav-links {
   display: flex;
   align-items: center;
   gap: 32px;
-  background: transparent !important;
+  background: transparent;
 }
 
-.nav-item {
+.nav-links a:not(.nav-contact) {
   text-decoration: none;
-  color: #000000 !important;
+  color: #000000;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
+  position: relative;
   transition: color 0.25s ease;
-  font-family: 'Poppins', sans-serif !important;
-  background: transparent !important;
+  background: transparent;
+  white-space: nowrap;
 }
 
-.nav-item:hover {
-  color: #2563eb !important;
+.nav-links a:not(.nav-contact):hover {
+  color: #0574bd;
 }
 
-/* =======================================================
-   TOMBOL LET'S TALK: KONTRAS TINGGI, ANTI-TENGGELAM
-======================================================= */
-.nav-contact-btn {
-  background: transparent !important;
-  background-color: transparent !important;
-  color: #000000 !important; /* Teks default hitam */
-  border: 1.5px solid #000000 !important;
-  padding: 8px 20px !important;
-  border-radius: 999px !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  text-decoration: none !important;
-  transition: all 0.25s ease !important;
-  font-family: 'Poppins', sans-serif !important;
+.nav-contact {
+  background: transparent;
+  background-color: transparent;
+  color: #000000;
+  border: 1.5px solid #000000;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
 
-.nav-contact-btn span {
-  color: #000000 !important;
-  transition: transform 0.25s ease !important;
+.nav-contact span {
+  color: #000000;
+  transition: transform 0.25s ease;
 }
 
-.nav-contact-btn:hover {
-  background: #000000 !important;
-  background-color: #000000 !important;
-  border-color: #000000 !important;
-  color: #ffffff !important; /* Teks dipaksa putih terang agar terbaca jelas */
+.nav-contact:hover {
+  background-color: #0574bd;
+  border-color: #0574bd;
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 14px rgba(5, 116, 189, 0.25);
 }
 
-.nav-contact-btn:hover span {
-  color: #ffffff !important; /* Panah ikut putih */
+.nav-contact:hover span {
+  color: #ffffff;
   transform: translate(2px, -2px);
-}
-
-.project-detail-page .site-nav {
-  position: relative !important; 
-  margin-bottom: 24px;
-  pointer-events: auto;
 }

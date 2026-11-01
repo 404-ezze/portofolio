@@ -487,10 +487,112 @@
   }
 
   .gallery-item {
-    flex: 0 0 320px;
+    flex: 0 0 min(320px, 90vw);
   }
 
   .gallery-item img {
     height: 200px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .project-header-card {
+    margin: 12px 5vw;
+    padding: 20px;
+  }
+
+  .detail-cover img {
+    height: 32vh;
+  }
+
+  .zigzag-number {
+    font-size: 32px;
+  }
+
+  .zigzag-text h2 {
+    font-size: 18px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .project-header-card {
+    margin: 10px 5vw;
+    padding: 18px;
+  }
+
+  .detail-cover img {
+    height: 28vh;
+  }
+
+  .project-modal-overlay {
+    padding: 16px;
+  }
+
+  .project-modal {
+    max-height: 94vh;
+    border-radius: 14px;
+  }
+
+  .project-modal-content {
+    padding: 20px 16px 18px;
+  }
+
+  .project-modal-main {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 18px 0;
+  }
+
+  .project-modal-image {
+    max-height: 300px;
+    aspect-ratio: 4 / 3;
+  }
+
+  .project-about-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .project-about-outcome {
+    padding-top: 2px;
+  }
+
+  .project-modal-about {
+    padding-top: 20px;
+  }
+
+  .project-gallery-caption {
+    margin-top: -12px;
+  }
+
+  .project-lightbox {
+    padding: 60px 12px 18px;
+  }
+}
+
+/* Extra small mobile */
+@media (max-width: 360px) {
+  .project-header-card {
+    margin: 8px 4vw;
+    padding: 16px;
+  }
+
+  .detail-cover img {
+    height: 24vh;
+  }
+
+  .project-modal-content {
+    padding: 16px 12px;
+  }
+
+  .project-modal-title {
+    font-size: 22px;
+  }
+
+  .project-tech-tag {
+    font-size: 9px;
+    padding: 6px 8px;
   }
 }

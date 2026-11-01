@@ -4,7 +4,7 @@
   gap: clamp(48px, 9vw, 130px);
   align-items: start;
   padding: 126px 10vw 136px;
-  background: #fff;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f8fd 50%, #ffffff 100%);
   font-family: 'Poppins', sans-serif;
 }
 
@@ -22,15 +22,22 @@
 }
 
 .about-panel__title {
-  margin: 32px 0 24px;
+  margin: 20px 0 24px;
+  width: 100%;
+  max-width: 600px;
+  font-size: clamp(30px, 5vw, 82px);
   color: #111827;
-  font-size: clamp(46px, 5.3vw, 76px);
-  line-height: .91;
-  letter-spacing: -.08em;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.075em;
+  text-wrap: balance;
 }
 
 .about-panel__title em {
+  font-style: normal;
   color: #111827;
+  font-weight: 400;
 }
 
 .about-panel__summary {
@@ -119,7 +126,7 @@
 
 .about-panel__institution {
   margin: 6px 0 12px;
-  color: #74aff8 !important;
+  color: #0574BD !important; font-weight: 500;
   font: 11px 'Poppins', sans-serif;
 }
 
@@ -164,5 +171,118 @@
 
   .about-panel__experience-item .about-panel__period {
     margin-bottom: 12px;
+  }
+}
+
+
+.about-panel__experience-item {
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.about-panel__experience-item:hover {
+  transform: translateX(4px);
+}
+
+/* ==========================================
+   RESPONSIVE REFINEMENT — ABOUT SECTION
+   Penyesuaian multi-device tanpa mengubah desain utama
+========================================== */
+
+/* TABLET */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .about-panel {
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+    gap: 42px;
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  .about-panel__title {
+    font-size: clamp(36px, 5vw, 58px);
+  }
+
+  .about-panel__education {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .about-panel__experience-item {
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 18px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 560px) {
+  .about-panel {
+    width: 100%;
+    min-width: 0;
+    padding-top: 76px;
+    padding-bottom: 80px;
+    overflow: hidden;
+  }
+
+  .about-panel__intro,
+  .about-panel__content,
+  .about-panel__block {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .about-panel__title {
+    max-width: 100%;
+    font-size: clamp(38px, 10vw, 54px);
+    line-height: 1.08;
+    overflow-wrap: break-word;
+  }
+
+  .about-panel__summary {
+    max-width: 100%;
+    font-size: 13px;
+  }
+
+  .about-panel__education-item,
+  .about-panel__experience-item > div {
+    min-width: 0;
+  }
+
+  .about-panel__education-item h3,
+  .about-panel__experience-item h3 {
+    overflow-wrap: anywhere;
+  }
+
+  .about-panel__education-item p,
+  .about-panel__experience-item p {
+    text-align: left;
+    overflow-wrap: break-word;
+  }
+
+  .about-panel__block + .about-panel__block {
+    margin-top: 58px;
+  }
+}
+
+/* EXTRA SMALL MOBILE */
+@media (max-width: 380px) {
+  .about-panel {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  .about-panel__title {
+    font-size: 38px;
+  }
+
+  .about-panel__experience-item {
+    padding: 20px 0;
+  }
+
+  .about-panel__education-item h3,
+  .about-panel__experience-item h3 {
+    font-size: 15px;
+  }
+
+  .about-panel__period {
+    font-size: 9px;
   }
 }

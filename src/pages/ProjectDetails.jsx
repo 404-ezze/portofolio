@@ -1,15 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { dataPortofolio } from '../data/dataPortofolio';
-import './Project1.css'; // Menggunakan styling yang sudah ada
+import './ProjectDetails.css';
 
-export default function ProjectDetail() {
+export default function ProjectDetails() {
   const { id } = useParams();
   const sliderRef = useRef(null);
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+  const isDownRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+
+  // Scroll to top setiap kali berganti proyek
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   // Temukan proyek berdasarkan ID URL
   const project = dataPortofolio.proyek.find((p) => String(p.id) === String(id));
@@ -35,28 +40,28 @@ export default function ProjectDetail() {
 
   // Interaksi Drag Slider Galeri
   const handleMouseDown = (e) => {
-    isDown = true;
-    sliderRef.current.classList.add('active');
-    startX = e.pageX - sliderRef.current.offsetLeft;
-    scrollLeft = sliderRef.current.scrollLeft;
+    isDownRef.current = true;
+    sliderRef.current?.classList.add('active');
+    startXRef.current = e.pageX - (sliderRef.current?.offsetLeft || 0);
+    scrollLeftRef.current = sliderRef.current?.scrollLeft || 0;
   };
 
   const handleMouseLeave = () => {
-    isDown = false;
+    isDownRef.current = false;
     sliderRef.current?.classList.remove('active');
   };
 
   const handleMouseUp = () => {
-    isDown = false;
+    isDownRef.current = false;
     sliderRef.current?.classList.remove('active');
   };
 
   const handleMouseMove = (e) => {
-    if (!isDown) return;
+    if (!isDownRef.current || !sliderRef.current) return;
     e.preventDefault();
     const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    sliderRef.current.scrollLeft = scrollLeft - walk;
+    const walk = (x - startXRef.current) * 2;
+    sliderRef.current.scrollLeft = scrollLeftRef.current - walk;
   };
 
   return (
@@ -140,7 +145,13 @@ export default function ProjectDetail() {
       </header>
 
       <div className="detail-cover">
-        <img src={project.gambar} alt={project.judul} />
+        <img 
+          src={project.gambar} 
+          alt={project.judul} 
+          onError={(e) => {
+            e.target.src = '/images/project/Project1.jpg';
+          }}
+        />
       </div>
 
       {studiKasus && (
@@ -203,7 +214,14 @@ export default function ProjectDetail() {
           >
             {galeri.map((g, idx) => (
               <div className="gallery-item" key={idx}>
-                <img src={g.img} alt={g.caption || project.judul} draggable="false" />
+                <img 
+                  src={g.img} 
+                  alt={g.caption || project.judul} 
+                  draggable="false" 
+                  onError={(e) => {
+                    e.target.src = '/images/project/Project1.jpg';
+                  }}
+                />
                 <span>{g.caption || `0${idx + 1} / Tampilan Antarmuka`}</span>
               </div>
             ))}

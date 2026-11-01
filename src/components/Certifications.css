@@ -1,6 +1,7 @@
 /* ==========================================
-   KONTINER SEKSI SERTIFIKASI
+   KONTTAINER SEKSI SERTIFIKASI
 ========================================== */
+
 .cert-section {
   padding: 100px 5vw;
   max-width: 1200px;
@@ -8,8 +9,13 @@
   font-family: 'Poppins', sans-serif !important;
 }
 
+/* ==========================================
+   HEADER
+========================================== */
+
 .cert-header {
-  margin-bottom: 48px;
+  margin-bottom: 36px;
+  max-width: 760px;
 }
 
 .cert-eyebrow {
@@ -18,59 +24,133 @@
   gap: 10px;
   color: #64748b;
   font: 10px 'Poppins', sans-serif;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  margin-bottom: 0;
 }
 
-.cert-heading {
-  margin: 32px 0 24px;
-  color: #111827;
-  font-size: clamp(46px, 5.3vw, 76px);
-  line-height: .91;
-  letter-spacing: -.08em;
-}
-
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+.toolkit-panel__title {
+  margin: 20px 0 24px;
   width: 100%;
+  max-width: 600px;
+  font-size: clamp(30px, 5vw, 82px);
+  color: #111827;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.075em;
+  text-wrap: balance;
+}
+
+.toolkit-panel__title em {
+  color: #111827;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.cert-description {
+  max-width: 500px;
+  margin: 0;
+  color: #475569;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.02em;
+  font-size: 15px;
+  line-height: 1.8;
+  font-weight: 400;
+  padding-bottom: 12px;
 }
 
 /* ==========================================
-   KARTU SERTIFIKAT INDIVIDUAL
+   CERTIFICATION GRID
 ========================================== */
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 22px;
+  row-gap: 14px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* ==========================================
+   ANIMATION WRAPPER
+========================================== */
+
+.cert-card-reveal {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+}
+
+/* ==========================================
+   KARTU SERTIFIKAT
+========================================== */
+
 .cert-card {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 102px;
+  padding: 14px;
+
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 15px;
+  border-radius: 16px;
+
   display: grid;
-  grid-template-columns: 80px 1fr 30px;
-  gap: 16px;
+  grid-template-columns: 60px minmax(0, 1fr) 18px;
+  gap: 14px;
   align-items: flex-start;
+
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
   text-decoration: none;
+
   position: relative;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+
   box-shadow: 0 4px 16px rgba(15, 23, 42, 0.02);
 }
 
 .cert-card:hover {
   transform: translateY(-4px);
-  border-color: #cbd5e1;
-  background-color: #fafbfc;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+  border-color: #bfdbfe;
+  background-color: #f8fbff;
+  box-shadow: 0 12px 28px rgba(5, 116, 189, 0.08);
 }
+
+.cert-card:focus-visible {
+  outline: 2px solid #0574bd;
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   IKON PENERBIT
+========================================== */
 
 .cert-card__icon {
   width: 60px;
   height: 60px;
+
   background: #f8fafc;
   border: 1px solid #f1f5f9;
-  border-radius: 14px;
+  border-radius: 12px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   flex-shrink: 0;
 }
 
@@ -79,6 +159,10 @@
   height: 28px;
 }
 
+/* ==========================================
+   INFORMASI SERTIFIKAT
+========================================== */
+
 .cert-card__body {
   display: flex;
   flex-direction: column;
@@ -86,54 +170,64 @@
 }
 
 .cert-card__number {
-  font-size: 11.5px;
+  font-size: 10px;
   font-weight: 700;
   color: #94a3b8;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
   letter-spacing: 0.02em;
 }
 
 .cert-card__title {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
   color: #0f172a;
-  line-height: 1.35;
-  margin: 0 0 6px 0;
+  line-height: 1.4;
+  margin: 0 0 6px;
   letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
   transition: color 0.2s ease;
 }
 
 .cert-card:hover .cert-card__title {
-  color: #0574BD;
+  color: #0574bd;
 }
 
 .cert-card__issuer {
-  font-size: 12.5px;
+  font-size: 11px;
   font-weight: 500;
   color: #64748b;
-  margin: 0 0 2px 0;
+  margin: 0 0 2px;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .cert-card__date {
-  font-size: 11.5px;
+  font-size: 10px;
   color: #94a3b8;
   margin: 0;
 }
 
+/* ==========================================
+   IKON PREVIEW
+========================================== */
+
 .cert-card__external {
-  color: #0574BD;
+  color: #0574bd;
   opacity: 0.85;
+
   display: flex;
   justify-content: flex-end;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
 .cert-card__external svg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
 .cert-card:hover .cert-card__external {
@@ -142,132 +236,89 @@
 }
 
 /* ==========================================
-   KARTU KUTIPAN KHUSUS (QUOTE CARD)
+   CERTIFICATE REVEAL ANIMATION
 ========================================== */
-.cert-quote-card {
-  grid-column: span 2; 
-  background: #f8fafc;
-  border: 1px dashed #cbd5e1;
-  border-radius: 18px;
-  padding: 28px 36px;
-  display: flex;
-  align-items: flex-start;
-  justify-content:flex-end;
-  gap: 20px;
+
+.reveal-certificate {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0) scale(0.985);
+
+  transition:
+    opacity var(--reveal-duration, 750ms) cubic-bezier(0.22, 1, 0.36, 1),
+    transform var(--reveal-duration, 750ms) cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: opacity, transform;
 }
 
-.quote-mark {
-  font-size: 52px;
-  font-family: Georgia, serif;
-  line-height: 1;
-  color: #93c5fd;
-  align-self: flex-start;
-  user-select: none;
-}
-
-.quote-content {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex-grow: 1;
-}
-
-.quote-text {
-  font-size: 15px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: #475569;
-  margin: 0;
-}
-
-.quote-footer {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.quote-line {
-  flex-grow: 1;
-  max-width: 140px;
-  height: 1px;
-  background-color: #cbd5e1;
-}
-
-.quote-kicker {
-  font-size: 10px;
-  font-weight: 700;
-  color: #64748b;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.reveal-certificate.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
 }
 
 /* ==========================================
-   RESPONSIF MOBILE & TABLET
-========================================== */
-@media (max-width: 1080px) {
-  .cert-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .cert-quote-card {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 720px) {
-  .cert-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cert-quote-card {
-    grid-column: span 1;
-    padding: 24px;
-  }
-}
-/* Buat kartu bisa diklik */
-.cert-card {
-  cursor: pointer;
-  user-select: none;
-}
-
-/* =========================================================
    MODAL POP-UP PREVIEW SERTIFIKAT
-========================================================= */
+========================================== */
+
 .cert-modal-backdrop {
   position: fixed;
   inset: 0;
+
   background: rgba(15, 23, 42, 0.65);
+
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 24px;
   z-index: 9999;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
   animation: certFadeIn 0.2s ease-out forwards;
 }
 
 .cert-modal-dialog {
   background: #ffffff;
   border-radius: 20px;
+
   width: 100%;
   max-width: 860px;
   max-height: 90vh;
+
   display: flex;
   flex-direction: column;
+
   overflow: hidden;
+  flex-shrink: 0;
+
   box-shadow: 0 24px 48px rgba(15, 23, 42, 0.2);
   border: 1px solid #e2e8f0;
+
   animation: certScaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* ==========================================
+   HEADER MODAL
+========================================== */
 
 .cert-modal-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+
   padding: 20px 24px;
+
   border-bottom: 1px solid #e2e8f0;
   background: #ffffff;
+
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  flex-shrink: 0;
 }
 
 .cert-modal-kicker {
@@ -275,12 +326,12 @@
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  color: #0574BD;
+  color: #0574bd;
   letter-spacing: 0.05em;
 }
 
 .cert-modal-title {
-  margin: 4px 0 0 0;
+  margin: 4px 0 0;
   font-family: 'Poppins', sans-serif;
   font-size: 17px;
   font-weight: 700;
@@ -290,80 +341,431 @@
 .cert-modal-close {
   background: #f1f5f9;
   border: none;
-  width: 34px;
-  height: 34px;
+
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
+
   font-size: 14px;
   color: #475569;
+
   cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+
+  flex-shrink: 0;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .cert-modal-close:hover {
   background: #e2e8f0;
   color: #0f172a;
+  transform: rotate(90deg);
 }
 
-/* Area Tampilan Berkas Gambar/PDF */
+.cert-modal-close:focus-visible {
+  outline: 2px solid #0574bd;
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   AREA TAMPILAN GAMBAR / PDF
+========================================== */
+
 .cert-modal-viewer {
   padding: 16px;
+
   background: #f8fafc;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   overflow-y: auto;
   min-height: 360px;
 }
 
 .cert-modal-image {
+  display: block;
+
+  width: 100%;
   max-width: 100%;
   max-height: 72vh;
+
   object-fit: contain;
+
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
 }
 
 .cert-modal-iframe {
+  display: block;
   width: 100%;
   height: 72vh;
+
   border: none;
   border-radius: 10px;
+
+  background: #ffffff;
 }
 
 .cert-modal-placeholder {
   color: #64748b;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
+  text-align: center;
+  padding: 40px 20px;
 }
 
-/* Animasi */
+/* ==========================================
+   ANIMASI MODAL
+========================================== */
+
 @keyframes certFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes certScaleIn {
-  from { 
+  from {
     opacity: 0;
     transform: scale(0.96) translateY(8px);
   }
-  to { 
+
+  to {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
 }
 
+/* ==========================================
+   RESPONSIVE TABLET
+========================================== */
+
+@media (max-width: 1080px) {
+  .cert-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 18px;
+    row-gap: 14px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE MOBILE
+========================================== */
+
+@media (max-width: 720px) {
+  .cert-section {
+    padding: 80px 5vw;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 14px;
+  }
+
+  .cert-card {
+    grid-template-columns: 54px minmax(0, 1fr) 18px;
+    padding: 13px;
+    gap: 12px;
+  }
+
+  .cert-card__icon {
+    width: 54px;
+    height: 54px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE MODAL
+========================================== */
+
 @media (max-width: 640px) {
+  .cert-modal-backdrop {
+    padding: 12px;
+  }
+
   .cert-modal-dialog {
     max-height: 95vh;
+    border-radius: 16px;
   }
+
   .cert-modal-header {
     padding: 16px 18px;
   }
+
   .cert-modal-title {
     font-size: 15px;
+  }
+
+  .cert-modal-viewer {
+    padding: 12px;
+    min-height: 260px;
+  }
+
+  .cert-modal-image {
+    max-height: 75vh;
+  }
+
+  .cert-modal-iframe {
+    height: 70vh;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-certificate,
+  .reveal-certificate.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  .cert-card,
+  .cert-card__title,
+  .cert-card__external,
+  .cert-modal-close {
+    transition: none;
+  }
+
+  .cert-modal-backdrop,
+  .cert-modal-dialog {
+    animation: none;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE REFINEMENT — CERTIFICATIONS
+   Existing desktop design preserved
+========================================== */
+
+/* TABLET */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .cert-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 90px 6vw;
+    box-sizing: border-box;
+  }
+
+  .cert-header {
+    max-width: 100%;
+  }
+
+  .cert-header .toolkit-panel__title {
+    font-size: clamp(42px, 6vw, 64px);
+  }
+
+  .cert-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .cert-card {
+    grid-template-columns: 52px minmax(0, 1fr) 16px;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .cert-card__icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .cert-card__title {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+  .cert-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 76px 6vw 85px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .cert-header {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .cert-header .toolkit-panel__title {
+    max-width: 100%;
+    font-size: clamp(36px, 9.5vw, 52px);
+    line-height: 1.08;
+    overflow-wrap: break-word;
+  }
+
+  .cert-description {
+    max-width: 100%;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .cert-grid {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .cert-card-reveal {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .cert-card {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 90px;
+    grid-template-columns: 48px minmax(0, 1fr) 16px;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .cert-card__icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .issuer-svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .cert-card__body {
+    min-width: 0;
+  }
+
+  .cert-card__title {
+    font-size: 12px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .cert-card__issuer {
+    max-width: 100%;
+  }
+
+  .cert-card__date {
+    font-size: 9px;
+  }
+
+  /* MODAL PREVIEW */
+  .cert-modal-backdrop {
+    padding: 10px;
+    align-items: center;
+  }
+
+  .cert-modal-dialog {
+    width: 100%;
+    max-width: 100%;
+    max-height: 94dvh;
+    border-radius: 14px;
+  }
+
+  .cert-modal-header {
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .cert-modal-header > div {
+    min-width: 0;
+  }
+
+  .cert-modal-kicker {
+    font-size: 9px;
+    overflow-wrap: anywhere;
+  }
+
+  .cert-modal-title {
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .cert-modal-close {
+    width: 32px;
+    height: 32px;
+  }
+
+  .cert-modal-viewer {
+    width: 100%;
+    min-height: 220px;
+    max-height: calc(94dvh - 90px);
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .cert-modal-image {
+    width: 100%;
+    max-width: 100%;
+    max-height: 76dvh;
+    object-fit: contain;
+  }
+
+  .cert-modal-iframe {
+    width: 100%;
+    height: 76dvh;
+  }
+}
+
+/* EXTRA SMALL MOBILE */
+@media (max-width: 360px) {
+  .cert-section {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .cert-header .toolkit-panel__title {
+    font-size: 34px;
+  }
+
+  .cert-card {
+    grid-template-columns: 42px minmax(0, 1fr) 14px;
+    gap: 9px;
+    padding: 12px;
+  }
+
+  .cert-card__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .cert-card__title {
+    font-size: 11px;
+  }
+
+  .cert-card__external svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .cert-modal-header {
+    padding: 12px;
+  }
+
+  .cert-modal-viewer {
+    padding: 8px;
   }
 }
