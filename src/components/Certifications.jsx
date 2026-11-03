@@ -1,9 +1,11 @@
+
 import React, { useEffect, useState } from 'react';
 import './Certifications.css';
 import ScrollReveal from './animations/ScrollReveal';
 
 export default function Certifications({ sertifikasi }) {
   const [selectedCert, setSelectedCert] = useState(null);
+  const [imageError, setImageError] = useState(false);
 
   if (!sertifikasi || sertifikasi.length === 0) return null;
 
@@ -56,22 +58,24 @@ export default function Certifications({ sertifikasi }) {
   };
 
   const handleOpenCert = (item) => {
-    const certFile =
-      item.file ||
-      item.gambar ||
-      item.link ||
-      (item.penerbit?.toLowerCase().includes('huawei')
-        ? '/images/project/SertifHuawei.png'
-        : null);
+    setImageError(false);
+
+    // Gunakan file sebagai sumber utama.
+    // gambar dan link tetap didukung untuk kompatibilitas data lama.
+    const certFile = item.file || item.gambar || item.link || null;
 
     setSelectedCert({
       ...item,
       previewUrl: certFile,
+      isPdf: certFile
+        ? /\.pdf(?:$|[?#])/i.test(certFile)
+        : false,
     });
   };
 
   const handleCloseModal = () => {
     setSelectedCert(null);
+    setImageError(false);
   };
 
   useEffect(() => {
@@ -202,24 +206,42 @@ export default function Certifications({ sertifikasi }) {
             </header>
 
             <div className="cert-modal-viewer">
-              {selectedCert.previewUrl ? (
-                selectedCert.previewUrl.toLowerCase().includes('.pdf') ? (
-                  <iframe
-                    src={selectedCert.previewUrl}
-                    title={selectedCert.nama}
-                    className="cert-modal-iframe"
-                  />
-                ) : (
-                  <img
-                    src={selectedCert.previewUrl}
-                    alt={`Sertifikat ${selectedCert.nama}`}
-                    className="cert-modal-image"
-                  />
-                )
-              ) : (
+              {!selectedCert.previewUrl ? (
                 <div className="cert-modal-placeholder">
                   <p>Berkas sertifikat digital belum tersedia.</p>
                 </div>
+              ) : imageError ? (
+                <div className="cert-modal-placeholder">
+                  <p>Berkas sertifikat tidak dapat dimuat.</p>
+                  <span>
+                    Periksa kembali nama file dan lokasi penyimpanannya.
+                  </span>
+                </div>
+              ) : selectedCert.isPdf ? (
+                <div className="cert-pdf-container">
+                  <iframe
+                    key={selectedCert.previewUrl}
+                    src={selectedCert.previewUrl}
+                    title={`Sertifikat ${selectedCert.nama}`}
+                    className="cert-modal-iframe"
+                  />
+
+                  <a
+                    href={selectedCert.previewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cert-pdf-open"
+                  >
+                    Open PDF in New Tab ↗
+                  </a>
+                </div>
+              ) : (
+                <img
+                  src={selectedCert.previewUrl}
+                  alt={`Sertifikat ${selectedCert.nama}`}
+                  className="cert-modal-image"
+                  onError={() => setImageError(true)}
+                />
               )}
             </div>
           </div>

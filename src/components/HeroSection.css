@@ -164,6 +164,9 @@
   font-size: 13px;
   line-height: 1.9;
   font-weight: 400;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.8;
 }
 
 /* ==========================================

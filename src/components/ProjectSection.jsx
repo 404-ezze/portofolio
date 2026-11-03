@@ -253,9 +253,9 @@ export default function ProjectSection({ proyek }) {
                 const projectId = item.id ?? index + 1;
 
                 const imageUrl =
+                  item.gambar ||
                   item.galeri?.[0]?.img ||
                   item.gallery?.[0]?.img ||
-                  item.gambar ||
                   `/images/project/Project${projectId}.jpg`;
 
                 const rawTechnologies =
